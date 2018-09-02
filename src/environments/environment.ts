@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'https://content.guardianapis.com',
+  apiKey: 'f7174883-8da7-485b-95b0-88715c06f95e'
 };
 
 /*
