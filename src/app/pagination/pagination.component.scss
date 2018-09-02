@@ -1,0 +1,23 @@
+.pagination-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  margin-top: 15px;
+  align-items: center;
+  font-family: sans-serif;
+  font-size: 16px;
+
+  input {
+    width: 70px;
+    border: 1px solid black;
+    text-align: center;
+    padding: 5px;
+    font-size: 16px;
+  }
+
+  button {
+    &:disabled {
+      opacity: 0.6;
+    }
+  }
+}

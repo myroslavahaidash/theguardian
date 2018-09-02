@@ -1,0 +1,21 @@
+<button (click)="onRefresh()">
+  <i class="material-icons">refresh</i>
+  Refresh
+</button>
+
+<app-news-item
+  *ngFor="let newsItem of newsItems"
+  [newsItem]="newsItem"
+  (selectId)="onSelectNewsItem($event)"
+  [isOpen]="newsItem.id === selectedNewsId">
+</app-news-item>
+
+<p *ngIf="errorOccurred" class="error-message">
+  Sorry, we couldn't find news for you. Please try again later
+</p>
+
+<app-pagination
+  [total]="totalPagesNumber"
+  (pageNumberChanged)="onPageNumberChange($event)"
+  [currentPage]="pageNumber"
+></app-pagination>

@@ -1,0 +1,15 @@
+<div class="pagination-wrapper">
+  <button (click)="onPreviousClick()" [disabled]="currentPageNumberControl.value <= 1">
+    <i class="material-icons">keyboard_arrow_left</i>
+    Previous Page
+  </button>
+
+  <div>
+    <input type="number" [formControl]="currentPageNumberControl"> of {{total}}
+  </div>
+
+  <button (click)="onNextClick()" [disabled]="currentPageNumberControl.value >= total">
+    Next Page
+    <i class="material-icons">keyboard_arrow_right</i>
+  </button>
+</div>

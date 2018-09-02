@@ -1,18 +1,8 @@
-<button (click)="onRefresh()">Refresh</button>
+<header>
+  <h1>The Guardian News</h1>
+</header>
 
-<div *ngFor="let item of newsItems">
-  {{item.webTitle}}
-  <button (click)="onShowText(item.id)">Show text</button>
-  <div *ngIf="shortText && selectedNewsId == item.id">
-    <p>{{shortText}}</p>
-    <a href="{{item.webUrl}}">Read full news</a>
-  </div>
-</div>
+<app-news-list></app-news-list>
 
-<p *ngIf="errorOccurred">
-  Sorry, we couldn't find news for you. Please try again later
-</p>
 
-<button>Previous Page</button>
-<input type="number" [formControl]="currentPageNumberControl"> of {{total}}
-<button>Next Page</button>
+

@@ -1,0 +1,25 @@
+.news-item-wrapper {
+  border: 2px solid black;
+  margin-top: 5px;
+
+  .news-item-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    cursor: pointer;
+    align-items: center;
+  }
+
+  .active {
+    background: #a6c4e2;
+  }
+
+  .short-text {
+    border-top: 2px solid black;
+    padding: 10px;
+
+    a {
+      color: #2c70b3;
+    }
+  }
+}
