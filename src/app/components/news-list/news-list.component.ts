@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsService } from '../news.service';
-import NewsItem from '../models/NewsItem';
+import { NewsService } from '../../news.service';
+import NewsItem from '../../models/NewsItem';
+import ResponseData from '../../models/NewsListResponseData';
 
 @Component({
   selector: 'app-news-list',
@@ -14,34 +15,39 @@ export class NewsListComponent implements OnInit {
   ) { }
 
   pageNumber = 1;
-  newsItems: NewsItem[];
+  newsItems: NewsItem[] = [];
   errorOccurred: boolean;
   selectedNewsId: string;
   totalPagesNumber: number;
+  isLoading: boolean;
 
   ngOnInit() {
     this.getNews(this.pageNumber);
   }
 
-  getNews(pageNumber) {
-    this.newsService.getNews(pageNumber).subscribe(response  => {
+  getNews(pageNumber: number): void {
+    this.isLoading = true;
+    this.newsService.getNews(pageNumber).subscribe((response: ResponseData)  => {
+      this.errorOccurred = false;
+      this.isLoading = false;
       this.newsItems = response.results;
       this.totalPagesNumber = response.pages;
-    }, err => {
+    }, () => {
+      this.isLoading = false;
       this.errorOccurred = true;
       this.newsItems = [];
     });
   }
 
-  onRefresh() {
+  onRefresh(): void {
     this.getNews(this.pageNumber);
   }
 
-  onSelectNewsItem(selectedNewsId) {
+  onSelectNewsItem(selectedNewsId: string): void {
     this.selectedNewsId = selectedNewsId;
   }
 
-  onPageNumberChange(pageNumber) {
+  onPageNumberChange(pageNumber: number): void {
     this.pageNumber = pageNumber;
     this.getNews(pageNumber);
   }

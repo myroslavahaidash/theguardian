@@ -12,11 +12,14 @@
 
   .active {
     background: #a6c4e2;
+    border-bottom: 2px solid black;
   }
 
   .short-text {
-    border-top: 2px solid black;
     padding: 10px;
+    overflow: hidden;
+    transform: translateZ(0);
+    will-change: height;
 
     a {
       color: #2c70b3;

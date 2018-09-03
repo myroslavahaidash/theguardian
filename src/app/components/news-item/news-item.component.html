@@ -1,0 +1,11 @@
+<div class="news-item-wrapper">
+  <div (click)="onToggleShowText()" class="news-item-header" [class.active]="isOpen">
+    {{newsItem.webTitle}}
+    <i class="material-icons">{{isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}</i>
+  </div>
+
+  <div *ngIf="shortText && isOpen" class="short-text" [@showAnimation]>
+    <p>{{shortText}}</p>
+    <a href="{{newsItem.webUrl}}" target="_blank">Read full news</a>
+  </div>
+</div>
